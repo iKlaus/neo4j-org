@@ -10,23 +10,31 @@
       <h1>Contributors - you rock.</h1>
       <p class="lead">The Neo4j project is driven by the community. Here are some individuals that you might encounter in the discussion forums or come across their projects.
       For a full list of all code contributors, please see <a href="http://docs.neo4j.org/chunked/snapshot/contributors.html">The official docs.</a></p>
-      <div class="thumbnails contributors row-fluid">
-
-          <% ["maxdemarzi","mhluongo","ronge","craigtaverner","technige"].forEach(function(contributor) { %>
-              <% include _contributor %>
-          <% }); %>
-		    
-      </div>
-      <div class="thumbnails contributors row-fluid">
-
-          <% ["pablopareja","espeed","rhetonik"].forEach(function(contributor) { %>
-              <% include _contributor %>
-          <% }); %>
-      </div>
+      <div id="contributors-thumbs" class="thumbnails contributors row-fluid"></div>
     </div>
   </div>
 
 </div>
+
+<script>
+  $(function() {
+    $('#contributors-thumbs').tiled({
+      columns: {
+        1170: 5,
+        900: 4,
+        680: 3,
+        460: 2,
+        0: 1
+      },
+      template: '<div class="thumbnail tile contributors"><a href="{url}"><img src="{logo}" width="200" title="{name}" alt="picture of {name}"></a><div class="caption"><h5><a href="http://twitter.com/{key}" target="_blank">{name}</a></h5><p>{text}</p></div></div>',
+      // pass data object
+      // src: <%- JSON.stringify(contributors) %>
+      // pass url for remote data collection
+      src: '/contributors.json'
+    });
+  });
+</script>
+
 
     <h2 id="map">The Graphistas map - add yourself!</h2>
     <p>Go to the <a target="_blank"

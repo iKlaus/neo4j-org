@@ -579,3 +579,8 @@ section {
 .markdown h3 {
     font-size: 15px;
 }
+
+/* Tiled content */
+.tile.contributors {
+    width: 200px;
+}

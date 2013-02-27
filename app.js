@@ -222,6 +222,11 @@ route_get('/events.json',function(req,res) {
     })
 });
 
+route_get('/contributors.json', function(req, res) {
+  res.header('Content-Type', 'application/json');
+  res.send(200, JSON.stringify(data.contributors));
+});
+
 // well known historic URLs redirects
 route_get('/download', routes.install);
 route_get('/about', routes.neo4j);
